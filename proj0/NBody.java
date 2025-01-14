@@ -23,7 +23,7 @@ public class NBody {
         return allPlanets;
     }
     
-    public static String background = "images/starfield.jpg";
+    private static String background = "images/starfield.jpg";
 
     private static void drawBackground(double radius){
         StdDraw.setScale(-radius, radius);
@@ -69,21 +69,21 @@ public class NBody {
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
         double radius = readRadius(filename);
-        Planet allPlanets[] = readPlanets(filename);
+        Planet Planets[] = readPlanets(filename);
 
         // drawBackground(radius);
         // drawPlanets(allPlanets);
 
         StdDraw.enableDoubleBuffering();
 
-        animation(T, dt, radius, allPlanets);
+        animation(T, dt, radius, Planets);
 
-        StdOut.printf("%d\n", allPlanets.length);
+        StdOut.printf("%d\n", Planets.length);
         StdOut.printf("%.2e\n", radius);
-        for(int i = 0; i < allPlanets.length; i++){
+        for(int i = 0; i < Planets.length; i++){
             StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
-            allPlanets[i].xxPos, allPlanets[i].yyPos, allPlanets[i].xxVel,
-            allPlanets[i].yyVel, allPlanets[i].mass, allPlanets[i].imgFileName);
+            Planets[i].xxPos, Planets[i].yyPos, Planets[i].xxVel,
+            Planets[i].yyVel, Planets[i].mass, Planets[i].imgFileName);
         }
     }
 }

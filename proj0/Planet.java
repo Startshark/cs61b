@@ -1,6 +1,6 @@
 public class Planet {
     public double xxPos, yyPos, xxVel, yyVel, mass;
-    public static double G = 6.67e-11;
+    private static double G = 6.67e-11;
     public String imgFileName;
 
     public Planet(double xP, double yp, double xV, double yV, double m, String img){
