@@ -41,7 +41,7 @@ public class NBody {
 
     private static void animation(double T, double dt, double radius, Planet[] Planets){
         int length = Planets.length;
-        for(double cur_time = 0; cur_time < T; cur_time += dt){
+        for(double cur_time = 0; cur_time <= T; cur_time += dt){  // Problem Must be Here, it must be <= ! WTF!
             double[] xForces = new double[length];
             double[] yForces = new double[length];
             
