@@ -20,6 +20,6 @@ public class DebugExercise3 {
 
     public static void main(String[] args) {
         In in = new In("foods.csv");
-        System.out.println(countTurnips(in));
+        System.out.println(countTurnips(in));  // led by "kroger turnip 0.45 -387128732"
     }
 }
