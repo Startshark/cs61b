@@ -69,14 +69,12 @@ public class IntListTest {
     @Test(timeout = 1000)
     public void testReverse(){
         IntList A = IntList.of(1, 2, 3, 4);
-        IntList res_A = IntList.reverse(A);
+        IntList res_A = IntList.reverse(A); // destructive
 
         IntList emp = IntList.of();
         IntList res_emp = IntList.reverse(emp);
 
-        assertEquals(IntList.of(1, 2, 3, 4), A);
         assertEquals(IntList.of(4, 3, 2, 1), res_A);
-        assertEquals(IntList.of(), emp);
         assertEquals(IntList.of(), res_emp);
     }
 

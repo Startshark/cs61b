@@ -117,17 +117,22 @@ public class IntList {
     //     return p;
     // }
 
-    public static IntList reverse(IntList A){
-        // return null;
-        if(A == null) return null;
-        IntList p = A;
-        IntList cur = new IntList(A.first, null);
-        while(p.rest != null){
-            IntList tmp = new IntList(p.rest.first, cur);
-            p = p.rest;
-            cur = tmp;
+    public static IntList reverse(IntList A) {
+        /** Notice this one is Destructive. */
+        
+        if (A == null) return null;
+
+        IntList prev = null;
+        IntList current = A;
+        IntList next = null;
+
+        while (current != null) {
+            next = current.rest;
+            current.rest = prev;
+            prev = current;
+            current = next;
         }
-        return cur;
+        return prev;
     }
 
 
