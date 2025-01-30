@@ -126,12 +126,14 @@ public class IntList {
         IntList current = A;
         IntList next = null;
 
+        /** Caution! */
         while (current != null) {
             next = current.rest;
-            current.rest = prev;
+            current.rest = prev; // 存储之后马上修改
             prev = current;
             current = next;
         }
+
         return prev;
     }
 
