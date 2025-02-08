@@ -1,16 +1,16 @@
-import org.junit.Test;
+import org.junit.Test; 
 import static org.junit.Assert.*;
 
-public class ArrayDequeTest {
-    @Test
-    public void checkEmpty(){
-        ArrayDeque<String> ad = new ArrayDeque<>();
-        assertTrue(ad.isEmpty());
+public class ArrayDequeTest { 
+    @Test 
+    public void checkEmpty() { 
+        ArrayDeque<String> ad = new ArrayDeque<>(); 
+        assertTrue(ad.isEmpty()); 
     }
 
-
-    @Test
-    public void checkAdd(){
+    @Test 
+    public void checkAdd() { 
+        ArrayDeque<String> ad
         ArrayDeque<String> ad = new ArrayDeque<>();
 
         ad.addFirst("Loufey");
@@ -33,7 +33,7 @@ public class ArrayDequeTest {
     }
     
     @Test
-    public void checkRemove(){
+    public void checkRemove() {
         /*****************************/
         ArrayDeque<String> ad = new ArrayDeque<>();
 
@@ -59,7 +59,7 @@ public class ArrayDequeTest {
     }
 
     @Test
-    public void checkGet(){
+    public void checkGet() {
         /*****************************/
         ArrayDeque<String> ad = new ArrayDeque<>();
         
@@ -84,7 +84,7 @@ public class ArrayDequeTest {
     }
 
     @Test
-    public void checkResize(){
+    public void checkResize() {
         /*****************************/
         ArrayDeque<String> ad = new ArrayDeque<>();
         

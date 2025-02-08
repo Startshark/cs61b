@@ -115,7 +115,7 @@ public class ArrayDeque<T> {
 
     public T get(int index) {
         int len = items.length;        
-        int actual = (front + index >= len) ? front + index - len : front + index;
+        int actual = (front + index) % len;
         if (index < 0 || actual >= len) {
             return null;
         }
