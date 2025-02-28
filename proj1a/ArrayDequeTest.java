@@ -10,7 +10,6 @@ public class ArrayDequeTest {
 
     @Test 
     public void checkAdd() { 
-        ArrayDeque<String> ad
         ArrayDeque<String> ad = new ArrayDeque<>();
 
         ad.addFirst("Loufey");

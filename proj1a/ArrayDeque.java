@@ -7,34 +7,36 @@ public class ArrayDeque<T> {
     public ArrayDeque() {
         items = (T[]) new Object[8];
         size = 0;
-        front = 0;
-        back = 0;
+        front = 4;
+        back = 4;
     }
 
     public boolean isEmpty() {
         return size == 0;
-    }
+        }
 
     private void resize() {
-        /** Not quite right */
         int len = items.length;
         if (size == len) {
             T[] p = (T[]) new Object[2 * len];
-            System.arraycopy(items, 0, p, 0, back + 1);
-            if (front != 0) {
-                System.arraycopy(items, front, p, len + front, len - front);
-                front = len + front;
+            int newFront = len / 2;
+            int newBack = newFront + size - 1;
+            for (int i = 0; i < size; i++) {
+            p[newFront + i] = items[(front + i) % len];
             }
             items = p;
-        }
-        else if (len >= 16 && size < len / 4) {
+            front = newFront;
+            back = newBack;
+        } else if (len >= 16 && size < len / 4) {
             T[] p = (T[]) new Object[len / 2];
-            System.arraycopy(items, 0, p, 0, back + 1);
-            if (front != 0) {
-                System.arraycopy(items, front, p, front - len / 2, len - front);
-                front = front - len / 2;
+            int newFront = len / 4;
+            int newBack = newFront + size - 1;
+            for (int i = 0; i < size; i++) {
+            p[newFront + i] = items[(front + i) % len];
             }
             items = p;
+            front = newFront;
+            back = newBack;
         }
     }
 
