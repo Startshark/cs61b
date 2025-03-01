@@ -40,8 +40,8 @@ public class TestArrayDequeGold {
                     Integer actual = sad.removeFirst();
                     failure[count] = "removeFirst()";
 
-                    System.out.println("actual is " + actual);
-                    System.out.flush();
+                    // System.out.println("actual is " + actual);
+                    // System.out.flush();
 
                     if(count >= 2) {
                         assertEquals(failure[count - 2] + '\n' + failure[count - 1] + '\n' + failure[count], expected, actual);
