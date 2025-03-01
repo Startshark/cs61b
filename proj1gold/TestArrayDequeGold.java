@@ -12,8 +12,8 @@ public class TestArrayDequeGold {
         int count = 0;
 
         for (int i = 0; i < 1000; i++) {
-            System.out.println("The " + String.valueOf(i) + " times testing:");
-            System.out.flush();
+            // System.out.println("The " + String.valueOf(i) + " times testing:");
+            // System.out.flush();
 
             int randomNumber = StdRandom.uniform(4);
 
@@ -34,8 +34,8 @@ public class TestArrayDequeGold {
             
             else if (randomNumber == 2) {
                 if (!sad.isEmpty()) {
-                    System.out.println("removeFirst called!");
-                    System.out.flush();
+                    // System.out.println("removeFirst called!");
+                    // System.out.flush();
                     Integer expected = ad.removeFirst();
                     Integer actual = sad.removeFirst();
                     failure[count] = "removeFirst()";
@@ -54,14 +54,14 @@ public class TestArrayDequeGold {
             } 
             else if (randomNumber == 3) {
                 if (!sad.isEmpty()) {
-                    System.out.println("removeLast called!");
-                    System.out.flush();
+                    // System.out.println("removeLast called!");
+                    // System.out.flush();
                     Integer expected = ad.removeLast();
                     Integer actual = sad.removeLast();
                     failure[count] = "removeLast()";
 
-                    System.out.println("actual is " + actual);
-                    System.out.flush();
+                    // System.out.println("actual is " + actual);
+                    // System.out.flush();
 
                     if(count >= 2) {
                         assertEquals(failure[count - 2] + "\n" + failure[count - 1] + "\n" + failure[count], expected, actual);
