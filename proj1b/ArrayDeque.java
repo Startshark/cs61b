@@ -71,7 +71,9 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public T removeFirst() {
-        if (size <= 0) return null;
+        if (size <= 0) {
+            return null;
+        }
 
         T returnItem = items[front];
         items[front] = null;

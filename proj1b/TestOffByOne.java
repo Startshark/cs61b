@@ -18,6 +18,14 @@ public class TestOffByOne {
         b = 'c';
         assertTrue(offByOne.equalChars(a, b));
 
+        a = ' ';
+        b = ' ';
+        assertFalse(offByOne.equalChars(a, b));
+
+        a = 'a';
+        b = 'A';
+        assertFalse(offByOne.equalChars(a, b));
+
         Character c = 'r';
         Character d = 'l';
         assertFalse(offByOne.equalChars(c, d));
