@@ -8,8 +8,7 @@ public class TestArrayDequeGold {
         StudentArrayDeque<Integer> sad = new StudentArrayDeque<>();
         ArrayDeque<Integer> ad = new ArrayDeque<>();
 
-        String[] failure = new String[1001];
-        int count = 0;
+        String message = "";
 
         for (int i = 0; i < 1000; i++) {
             // System.out.println("The " + String.valueOf(i) + " times testing:");
@@ -21,15 +20,13 @@ public class TestArrayDequeGold {
                 int randomValue = StdRandom.uniform(100);
                 sad.addLast(randomValue);
                 ad.addLast(randomValue);
-                failure[count] = "addLast(" + randomValue+ ")";
-                count++;
+                message += ("addLast(" + randomValue + ")\n");
             } 
             else if (randomNumber == 1) {
                 int randomValue = StdRandom.uniform(100);
                 sad.addFirst(randomValue);
                 ad.addFirst(randomValue);
-                failure[count] = "addFirst(" + randomValue+ ")";
-                count++;
+                message += ("addFirst(" + randomValue + ")\n");
             } 
             
             else if (randomNumber == 2) {
@@ -38,38 +35,18 @@ public class TestArrayDequeGold {
                     // System.out.flush();
                     Integer expected = ad.removeFirst();
                     Integer actual = sad.removeFirst();
-                    failure[count] = "removeFirst()";
-
-                    // System.out.println("actual is " + actual);
-                    // System.out.flush();
-
-                    if(count >= 2) {
-                        assertEquals(failure[count - 2] + '\n' + failure[count - 1] + '\n' + failure[count], expected, actual);
-                    }
-                    else {
-                        assertEquals(failure[count - 1] + '\n' + failure[count], expected, actual);
-                    }
-                    count++;
+                    message += "removeFirst()\n";
+                    assertEquals(message, expected, actual);
                 }
-            } 
+            }
             else if (randomNumber == 3) {
                 if (!sad.isEmpty()) {
                     // System.out.println("removeLast called!");
                     // System.out.flush();
                     Integer expected = ad.removeLast();
                     Integer actual = sad.removeLast();
-                    failure[count] = "removeLast()";
-
-                    // System.out.println("actual is " + actual);
-                    // System.out.flush();
-
-                    if(count >= 2) {
-                        assertEquals(failure[count - 2] + "\n" + failure[count - 1] + "\n" + failure[count], expected, actual);
-                    }
-                    else {
-                        assertEquals(failure[count - 1] + "\n" + failure[count], expected, actual);
-                    }
-                    count++;
+                    message += "removeLast()\n";
+                    assertEquals(message, expected, actual);
                 }
             }
         }
