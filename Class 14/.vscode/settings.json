@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Jason Chen\\Desktop\\Code\\cs61b\\library-sp18\\javalib\\hamcrest-core-1.3.jar",
+        "c:\\Users\\Jason Chen\\Desktop\\Code\\cs61b\\library-sp18\\javalib\\jh61b.jar",
+        "c:\\Users\\Jason Chen\\Desktop\\Code\\cs61b\\library-sp18\\javalib\\algs4.jar",
+        "c:\\Users\\Jason Chen\\Desktop\\Code\\cs61b\\library-sp18\\javalib\\junit-4.12.jar",
+        "c:\\Users\\Jason Chen\\Desktop\\Code\\cs61b\\library-sp18\\javalib\\stdlib.jar",
+        "c:\\Users\\Jason Chen\\Desktop\\Code\\cs61b\\library-sp18\\javalib\\stdlib-package.jar"
+    ],
+    "code-runner.runInTerminal": true,
+    "java.format.settings.url": "C:\\Users\\Jason Chen\\.vscode\\extensions\\redhat.java-1.39.0\\formatters\\eclipse-formatter.xml",
+}
