@@ -43,30 +43,83 @@ public class MemoryGame {
         StdDraw.clear(Color.BLACK);
         StdDraw.enableDoubleBuffering();
 
-        //TODO: Initialize random number generator
+        this.rand = new Random();
     }
 
     public String generateRandomString(int n) {
-        //TODO: Generate random string of letters of length n
-        return null;
+        String radomString = "";
+        for (int i = 0 ; i < n; i++) {
+            int radint = rand.nextInt(CHARACTERS.length);
+            radomString += CHARACTERS[radint];
+        }
+        return radomString;
     }
 
     public void drawFrame(String s) {
         //TODO: Take the string and display it in the center of the screen
         //TODO: If game is not over, display relevant game information at the top of the screen
+        StdDraw.clear();
+        Font font = new Font("Arial", Font.BOLD, 25);
+        StdDraw.setFont(font);
+        StdDraw.textLeft(1, this.height - 1, "Round: " + round);
+        if (playerTurn) {
+            StdDraw.text(this.width / 2, this.height - 1, "Type!");
+        } else {
+            StdDraw.text(this.width / 2, this.height - 1, "Watch!");
+        }
+
+        int randomEncouragement = rand.nextInt(ENCOURAGEMENT.length);
+        StdDraw.textRight(this.width - 1, this.height - 1, ENCOURAGEMENT[randomEncouragement]);
+
+        font = new Font("Arial", Font.BOLD, 30);
+        StdDraw.setFont(font);
+        StdDraw.text(this.width / 2, this.height / 2, s);
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.show();
     }
 
     public void flashSequence(String letters) {
         //TODO: Display each character in letters, making sure to blank the screen between letters
+        for (int i = 0; i < letters.length(); i++) {
+            String current = String.valueOf(letters.charAt(i));
+            drawFrame(current);
+            StdDraw.pause(1000);
+            StdDraw.clear();
+            StdDraw.pause(500);
+        }
     }
 
     public String solicitNCharsInput(int n) {
         //TODO: Read n letters of player input
-        return null;
+        String userString = "";
+        int len = 0;
+        while (playerTurn && StdDraw.hasNextKeyTyped() && len < n) { 
+            userString += String.valueOf(StdDraw.nextKeyTyped());
+            len++;
+        }
+        System.out.println("I get: " + userString);
+        return userString;
     }
 
     public void startGame() {
         //TODO: Set any relevant variables before the game starts
+        round = 0;
+        gameOver = false;
+        playerTurn = false;
+        while (!gameOver) {
+            round++;
+            drawFrame("Round: " + String.valueOf(round));
+            StdDraw.pause(1000);
+            String expectedString = generateRandomString(round);
+            flashSequence(expectedString);
+            playerTurn = true;
+            String userString = solicitNCharsInput(round);
+            if (!expectedString.equalsIgnoreCase(userString)) {
+                gameOver = true;
+            }
+            playerTurn = false;
+        }
+        drawFrame("Game Over! You made it to round:" + String.valueOf(round));
 
         //TODO: Establish Game loop
     }
